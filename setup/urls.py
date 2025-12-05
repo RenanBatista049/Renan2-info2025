@@ -1,7 +1,9 @@
 from django.contrib import admin
 from django.urls import path, include
+from apps.aluno.views import index
 
 urlpatterns = [
-path('admin/', admin.site.urls),
-path('', include('apps.aluno.urls'))
+    path('admin/', admin.site.urls),
+    path('', index, name="index"),
+    path('aluno/', include('apps.aluno.urls'))
 ]

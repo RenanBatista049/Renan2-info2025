@@ -1,3 +1,10 @@
 from django.contrib import admin
+from apps.aluno.models import aluno
 
-# Register your models here.
+class listandoalunos(admin.ModelAdmin):
+    list_display = ("id", "nome", "matricula", "telefone")
+    list_display_links = ("nome", "matricula")
+    search_fields = ("nome", "matricula")
+    list_per_page = 10
+
+admin.site.register(aluno, listandoalunos)
